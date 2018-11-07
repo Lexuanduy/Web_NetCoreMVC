@@ -56,7 +56,7 @@ namespace T1708E.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Value,SubjectId,StudentRollNumber")] Mark mark)
+        public async Task<IActionResult> Create([Bind("Id,SubjectMark,SubjectName,StudentRollNumber")] Mark mark)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace T1708E.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Value,SubjectId,StudentRollNumber")] Mark mark)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,SubjectMark,SubjectName,StudentRollNumber")] Mark mark)
         {
             if (id != mark.Id)
             {

@@ -17,11 +17,56 @@ namespace T1708E.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Student>().HasData(
+                new Student()
+                {
+                    RollNumber = "D00469",
+                    FirstName = "Duy",
+                    LastName = "Le",
+                    Email = "admin@gmail.com"
+                },
+                new Student()
+                {
+                    RollNumber = "D00529",
+                    FirstName = "Phuoc",
+                    LastName = "Nguyen",
+                    Email = "phuocding@gmail.com"
+                },
+                new Student()
+                {
+                    RollNumber = "D00553",
+                    FirstName = "Nhat",
+                    LastName = "Nguyen",
+                    Email = "Vannhat@gmail.com"
+                }
+            );
+            modelBuilder.Entity<Mark>().HasData(
+                new Mark()
+                {
+                    Id = 1,
+                    SubjectName = "Java Core",
+                    StudentRollNumber = "D00469",
+                    SubjectMark = 10
+                },
+                new Mark()
+                {
+                    Id = 2,
+                    SubjectName = "C#",
+                    StudentRollNumber = "D00529",
+                    SubjectMark = 7
+                },
+                new Mark()
+                {
+                    Id = 3,
+                    SubjectName = "PHP",
+                    StudentRollNumber = "D00553",
+                    SubjectMark = 8
+                }
+            );
         }
-
         public DbSet<T1708E.Models.Subject> Subject { get; set; }
 
         public DbSet<T1708E.Models.Mark> Mark { get; set; }
+        
     }
 }

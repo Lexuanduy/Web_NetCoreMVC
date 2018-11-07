@@ -29,6 +29,14 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
     </dl>
+    <div>
+        <ul>
+            @foreach (var mark in Model.Marks)
+            {
+            <li>@mark.SubjectName - @mark.SubjectMark</li>
+            }
+        </ul>
+    </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.RollNumber">Edit</a> |

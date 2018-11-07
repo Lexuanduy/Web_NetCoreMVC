@@ -21,8 +21,8 @@ namespace T1708E.Controllers
         // GET: Students
         public async Task<IActionResult> Index()
         {
-            //return View(await _context.Student.ToListAsync());
-            return View("Views/Template/Master.cshtml");
+            return View(await _context.Student.ToListAsync());
+            //return View("Views/Template/Master.cshtml");
         }
 
         // GET: Students/Details/5
@@ -33,7 +33,7 @@ namespace T1708E.Controllers
                 return NotFound();
             }
 
-            var student = await _context.Student
+            var student = await _context.Student.Include(m => m.Marks)
                 .FirstOrDefaultAsync(m => m.RollNumber == id);
             if (student == null)
             {

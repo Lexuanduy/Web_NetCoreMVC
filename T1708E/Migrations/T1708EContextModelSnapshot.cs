@@ -27,17 +27,13 @@ namespace T1708E.Migrations
 
                     b.Property<string>("StudentRollNumber");
 
-                    b.Property<string>("SubjectId");
+                    b.Property<int>("SubjectMark");
 
-                    b.Property<int?>("SubjectId1");
-
-                    b.Property<int>("Value");
+                    b.Property<string>("SubjectName");
 
                     b.HasKey("Id");
 
                     b.HasIndex("StudentRollNumber");
-
-                    b.HasIndex("SubjectId1");
 
                     b.ToTable("Mark");
                 });
@@ -80,12 +76,8 @@ namespace T1708E.Migrations
             modelBuilder.Entity("T1708E.Models.Mark", b =>
                 {
                     b.HasOne("T1708E.Models.Student", "Student")
-                        .WithMany()
+                        .WithMany("Marks")
                         .HasForeignKey("StudentRollNumber");
-
-                    b.HasOne("T1708E.Models.Subject", "Subject")
-                        .WithMany()
-                        .HasForeignKey("SubjectId1");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace T1708E.Models
@@ -13,7 +14,7 @@ namespace T1708E.Models
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
         public StudentStatus Status { get; set; }
-
+        public List<Mark> Marks { get; set; }
         public Student()
         {
             this.CreatedAt = DateTime.Now;
