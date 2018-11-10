@@ -10,7 +10,7 @@ using T1708E.Models;
 namespace T1708E.Migrations
 {
     [DbContext(typeof(T1708EContext))]
-    [Migration("20181107155331_InitialCreate")]
+    [Migration("20181108120011_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,12 @@ namespace T1708E.Migrations
                     b.HasIndex("StudentRollNumber");
 
                     b.ToTable("Mark");
+
+                    b.HasData(
+                        new { Id = 1, StudentRollNumber = "D00469", SubjectMark = 10, SubjectName = "Java Core" },
+                        new { Id = 2, StudentRollNumber = "D00529", SubjectMark = 7, SubjectName = "C#" },
+                        new { Id = 3, StudentRollNumber = "D00553", SubjectMark = 8, SubjectName = "PHP" }
+                    );
                 });
 
             modelBuilder.Entity("T1708E.Models.Student", b =>
@@ -60,6 +66,12 @@ namespace T1708E.Migrations
                     b.HasKey("RollNumber");
 
                     b.ToTable("Student");
+
+                    b.HasData(
+                        new { RollNumber = "D00469", CreatedAt = new DateTime(2018, 11, 8, 19, 0, 11, 120, DateTimeKind.Local), Email = "admin@gmail.com", FirstName = "Duy", LastName = "Le", Status = 1, UpdatedAt = new DateTime(2018, 11, 8, 19, 0, 11, 122, DateTimeKind.Local) },
+                        new { RollNumber = "D00529", CreatedAt = new DateTime(2018, 11, 8, 19, 0, 11, 123, DateTimeKind.Local), Email = "phuocding@gmail.com", FirstName = "Phuoc", LastName = "Nguyen", Status = 1, UpdatedAt = new DateTime(2018, 11, 8, 19, 0, 11, 123, DateTimeKind.Local) },
+                        new { RollNumber = "D00553", CreatedAt = new DateTime(2018, 11, 8, 19, 0, 11, 123, DateTimeKind.Local), Email = "Vannhat@gmail.com", FirstName = "Nhat", LastName = "Nguyen", Status = 1, UpdatedAt = new DateTime(2018, 11, 8, 19, 0, 11, 123, DateTimeKind.Local) }
+                    );
                 });
 
             modelBuilder.Entity("T1708E.Models.Subject", b =>

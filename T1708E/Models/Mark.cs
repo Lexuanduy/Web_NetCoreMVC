@@ -16,5 +16,9 @@ namespace T1708E.Models
         public string StudentRollNumber { get; set; }
         [ForeignKey("StudentRollNumber")]
         public Student Student { get; set; }
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
